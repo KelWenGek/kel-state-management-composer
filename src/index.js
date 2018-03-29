@@ -1,0 +1,4 @@
+function SMC(options) {
+
+}
+

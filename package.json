@@ -1,0 +1,34 @@
+{
+  "name": "kel-state-management-composer",
+  "version": "1.0.0",
+  "description": "a composer for state management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KelWenGek/kel-state-management-composer.git"
+  },
+  "keywords": [
+    "state",
+    "management",
+    "composer"
+  ],
+  "author": "KelWenGek <wengxiacheng3132@163.com> (https://github.com/KelWenGek)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KelWenGek/kel-state-management-composer/issues"
+  },
+  "homepage": "https://github.com/KelWenGek/kel-state-management-composer#readme",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0"
+  },
+  "dependencies": {
+    "seamless-immutable": "^7.1.3"
+  }
+}
