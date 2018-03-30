@@ -1,7 +1,8 @@
+const path = require('path');
 const fs = require('fs');
-const babelConfig = JSON.parse(fs.readFileSync('../.babelrc'));
+const babelConfig = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../.babelrc')));
 require('babel-register')(babelConfig);
-const completeModule = require('../core/complete-module').default;
+const completeModule = require('../state-management-composer/core/complete-module').default;
 const result = completeModule({
     namespace: 'seller',
     mapTargetsToModule: ['order', 'commodity'],

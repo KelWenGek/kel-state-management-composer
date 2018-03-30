@@ -1,7 +1,7 @@
 import { isPlainObject, merge } from '../util'
-export function defaultMergeStrategy(target) {
-    return function (state, payload) {
-        state[target] = merge(state[target], payload);
+export function defaultMergeStrategy() {
+    return function (prevState, nextState) {
+        return merge(prevState, nextState);
     }
 }
 
@@ -10,11 +10,7 @@ export function wrapMergeStrategyToFunc(mapMergeStrategy) {
         ? mapMergeStrategy()
         : mapMergeStrategy;
     function proxy(target) {
-        const targetedMergeStrategy = target ? mergeStrategy[target] || defaultMergeStrategy : defaultMergeStrategy;
-        function finalTargetedMergeStrategy(state, payload) {
-            const targetedState = state[target];
-            return targetedMergeStrategy.call(null, targetedState, payload)
-        }
+        return mergeStrategy[target] || defaultMergeStrategy();
     }
     return proxy;
 }
@@ -27,7 +23,7 @@ export function whenMergeStrategyIsObjectOrFunction(mapMergeStrategy) {
 
 export function whenMergeStrategyIsOmitted(mapMergeStrategy) {
     return (!mapMergeStrategy)
-        ? (target) => defaultMergeStrategy(target)
+        ? () => defaultMergeStrategy()
         : undefined
 }
 
@@ -35,3 +31,12 @@ export default [
     whenMergeStrategyIsObjectOrFunction,
     whenMergeStrategyIsOmitted
 ]
+
+
+// const mapMergeStrategy = {
+//     a(prevState, nextState) {
+//         return {
+
+//         }
+//     }
+// }

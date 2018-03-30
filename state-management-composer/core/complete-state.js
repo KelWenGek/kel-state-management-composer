@@ -3,6 +3,8 @@ export default function completeState(target) {
         [`${target}Loading`]: false,
         [target]: {
             data: null,
+            pageIndex: 1,
+            pageSize: 10,
             loaded: false
         },
         [`${target}Error`]: null
